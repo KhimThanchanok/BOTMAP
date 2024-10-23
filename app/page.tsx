@@ -396,8 +396,7 @@ export default function Home() {
 
     </main>
   );
-  function createPopupContent(filteredEvents) {
-    return filteredEvents
+      return filteredEvents
       .map((event) => {
         console.log("Event:", event);
         // Extract the contact name and phone number from the 'who' field
@@ -426,12 +425,13 @@ export default function Home() {
         });
 
         // Only display phone number if it's available
-        const contactDetails = contactPhone ? `Contact: K. ${contactName} (Tel: ${contactPhone})` : `Contact: Prof. ${contactName}`;
+        const contactDetails = contactPhone ? `Contact: ${contactName} (Tel: ${contactPhone})` : `Contact: ${contactName}`;
 
         return `
           <div key=${event.id}>
             <h3>${event.title}</h3>
             <p>${event.notes}</p> 
+            <p>${startDate}</p> 
             <p>Time: ${startTime} - ${endTime}</p>
             <p>${contactDetails}</p>
           </div>
@@ -439,4 +439,6 @@ export default function Home() {
       })
       .join("");
   }
+
+}
 
